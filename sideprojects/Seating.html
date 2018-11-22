@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" content="width=device-width, initial-scale=1.0" />
+    <title>Seating</title>
+
+    <style>
+        div.plasser {
+            width: 120px;
+            height: 60px;
+            background-color: green;
+            float: left;
+            border: solid 1px black;
+        }
+
+        div.reservert {
+            width: 120px;
+            height: 60px;
+            background-color: blue;
+            float: left;
+            border: solid 1px black;
+
+        }
+
+        div.dinplass {
+            width: 120px;
+            height: 60px;
+            background-color: lightblue;
+            float: left;
+            border: solid 1px black;
+
+        }
+
+        p {
+            margin: 5px;
+        }
+
+        #text {
+            border: solid 1px black;
+            width: 15vw;
+            margin-bottom: 5px;
+        }
+
+        #rad1{
+            float: left;
+        }
+        #rad2 {
+            clear: left;
+        }
+        #rad3{
+            float: left;
+            margin-top: 50px;
+        }
+        #rad4 {
+            clear: left;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div id="text">
+        <p id="totaleplasser"> </p>
+        <p id="ledigeplasser"> </p>
+        <p id="Reservertplasser"> </p>
+        <p id="dinplass"> </p>
+    </div>
+
+    <div id=rad1>
+        <div class="plasser" id=r1s1></div>
+        <div class="plasser" id=r1s1></div>
+        <div class="plasser" id=r1s1></div>
+        <div class="plasser" id=r1s1></div>
+        <div class="dinplass" id=r1s1></div>
+        <div class="reservert" id=r1s1></div>
+        <div class="reservert" id=r1s1></div>
+        <div class="reservert" id=r1s1></div>
+        <div class="plasser" id=r1s1></div>
+        <div class="plasser" id=r1s1></div>
+
+    </div>
+
+    <div id=rad2>
+        <div class="plasser" id=r1s1></div>
+        <div class="plasser" id=r1s1></div>
+        <div class="reservert" id=r1s1></div>
+        <div class="reservert" id=r1s1></div>
+        <div class="reservert" id=r1s1></div>
+        <div class="reservert" id=r1s1></div>
+        <div class="reservert" id=r1s1></div>
+        <div class="plasser" id=r1s1></div>
+        <div class="plasser" id=r1s1></div>
+        <div class="plasser" id=r1s1></div>
+
+    </div>
+
+    <div id=row2>
+        <div id=rad3>
+            <div class="plasser" id=r1s1></div>
+            <div class="plasser" id=r1s1></div>
+            <div class="plasser" id=r1s1></div>
+            <div class="reservert" id=r1s1></div>
+            <div class="reservert" id=r1s1></div>
+            <div class="reservert" id=r1s1></div>
+            <div class="reservert" id=r1s1></div>
+            <div class="reservert" id=r1s1></div>
+            <div class="plasser" id=r1s1></div>
+            <div class="plasser" id=r1s1></div>
+
+        </div>
+
+        <div id=rad4>
+            <div class="plasser" id=r1s1></div>
+            <div class="reservert" id=r1s1></div>
+            <div class="reservert" id=r1s1></div>
+            <div class="reservert" id=r1s1></div>
+            <div class="reservert" id=r1s1></div>
+            <div class="reservert" id=r1s1></div>
+            <div class="reservert" id=r1s1></div>
+            <div class="plasser" id=r1s1></div>
+            <div class="plasser" id=r1s1></div>
+            <div class="plasser" id=r1s1></div>
+
+        </div>
+    </div>
+
+    <script>
+        var totplasser = document.querySelectorAll('.plasser, .reservert, .dinplass');
+        var reservertplasser = document.querySelectorAll('.reservert');
+        var ledigeplasser = document.querySelectorAll('.plasser');
+        var dinplass = document.querySelectorAll('.dinplass');
+
+        document.getElementById('totaleplasser').innerHTML =
+            totplasser.length + ' Totale plasser ';
+
+        document.getElementById('Reservertplasser').innerHTML =
+            reservertplasser.length + ' Reserverte Plasser';
+
+        document.getElementById('ledigeplasser').innerHTML =
+            ledigeplasser.length + ' Ledige Plasse';
+
+        document.getElementById('dinplass').innerHTML =
+            dinplass.length + ' Din Plass';
+
+    </script>
+</body>
