@@ -1,1 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
+<head>
+    <meta charset="utf-8" />
+    <title>Åpningstider</title>
+    <link rel="stylesheet" type="text/css" href="jotron.css">
+    <script type="text/javascript" src="script.js"></script>
+    <style>
+body {
+	width: 100wh;
+	height: 100%;
+	color: #fff;
+	background: linear-gradient(-45deg, #0F5958, #18A698, #648CA6, #8FD4D9, #D93341);
+	background-size: 800% 800%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+#dayAndTime{
+    font-size: 56px;
+    text-align: center;
+    margin-top: 15vh;
+}
+#question{
+    font-size: 56px;
+    text-align: center;
+    margin-top: 25vh;
+}
+p{
+    font-size: 56px;
+}
+    </style>
+</head>
+
+<body>
+<div id="question">Er Pick-up Point Oslo åpent?</div>
+    <div id="dayAndTime" style="padding-top: 20px;"></div>
+    <script type="text/javascript">
+    
+            var div = document.getElementById('dayAndTime');
+   
+
+            var d = new Date();
+            var hour = d.getHours();
+            var minute = d.getMinutes();
+            var dayNo = d.getDay();
+            var day = '';
+            if (dayNo === 1) day = 'Mandag';
+            else if (dayNo === 2) day = 'Tirsdag';
+            else if (dayNo === 3) day = 'Onsdag';
+            else if (dayNo === 4) day = 'Torsdag';
+            else if (dayNo === 5) day = 'Fredag';
+            else if (dayNo === 6) day = 'Lørdag';
+            else if (dayNo === 7) day = 'Søndag';
+
+
+            div.innerHTML = day + ' - ' + hour + ':' + minute;
+            if (dayNo < 6) {
+                if (hour >= 10 && hour <= 20)
+                    div.innerHTML += '<p>Åpent</p>';
+                else
+                    div.innerHTML += '<p>Stengt</p>';
+            }
+
+            else if (dayNo === 6) {
+                if (hour >= 10 && hour <= 16)
+                    div.innerHTML += '<p>Åpent</p>';
+                else
+                    div.innerHTML += '<p>Stengt</p>';
+            } 
+            else if (dayNo === 7) {
+                div.innerHTML += '<p>Stengt</p>';
+            }
+    </script>
+
+
+
+</body>
