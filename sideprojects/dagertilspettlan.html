@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Slan</title>
+    <script type="text/javascript" src="script.js"></script>
+    <style>
+body {
+	width: 100wh;
+	height: 100%;
+	color: #fff;
+	background: linear-gradient(-45deg, #0F5958, #18A698, #648CA6, #8FD4D9, #D93341);
+	background-size: 800% 800%;
+	-webkit-animation: Gradient 15s ease infinite;
+	-moz-animation: Gradient 15s ease infinite;
+	animation: Gradient 15s ease infinite;
+}
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+#dagertillan{
+    font-size: 56px;
+    text-align: center;
+    margin-top: 15vh;
+}
+#question{
+    font-size: 56px;
+    text-align: center;
+    margin-top: 25vh;
+}
+p{
+    font-size: 56px;
+}
+    </style>
+</head>
+
+<body>
+<div id="question">Hvor lenge er det til SpettLan?</div>
+    <p id="dagertillan"></p>
+
+
+<script>
+        var countDownDate = new Date("Dec 7, 2018 16:00:00").getTime();
+        
+        var x = setInterval(function() {
+        
+          var now = new Date().getTime();
+        
+          var distance = countDownDate - now;
+        
+          var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+          document.getElementById("dagertillan").innerHTML = days + "Dager  " + hours + "Timer  "
+          + minutes + "Minutter  " + seconds + "Sekunder  ";
+        
+          if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("dagertillan").innerHTML = "EXPIRED";
+          }
+        }, 1000);
+        </script>
