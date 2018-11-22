@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" content="width=device-width, initial-scale=1.0" />
+    <title>Seating</title>
+
+    <style>
+        div.alleRader {
+            display: flex;
+            flex-direction: column;
+        }
+
+        div.rad {
+            display: flex;
+            flex-direction: row;
+        }
+
+        div.skilleRad {
+            height: 50px;
+        }
+
+        div.plasser {
+            width: 120px;
+            height: 60px;
+            background-color: green;
+            border: solid 1px black;
+        }
+
+        div.reservert {
+            width: 120px;
+            height: 60px;
+            background-color: blue;
+            border: solid 1px black;
+        }
+
+        div.dinplass {
+            width: 120px;
+            height: 60px;
+            background-color: lightblue;
+            border: solid 1px black;
+        }
+
+        p {
+            margin: 5px;
+        }
+
+        #text {
+            border: solid 1px black;
+            width: 15vw;
+            margin-bottom: 5px;
+        }
+        div{
+            font-family: 'Franklin Gothic Medium';
+        }
+    </style>
+</head>
+<body>
+    <div id="text">
+        <p id="totaleplasser"> </p>
+        <p id="ledigeplasser"> </p>
+        <p id="Reservertplasser"> </p>
+        <p id="dinplass"> </p>
+    </div>
+
+    <div id="alleRader"></div>
+
+    <script>
+        const ledig = 1000;
+        const opptatt = 1001;
+        const dinPlass = 1002;
+        const antallPlasserBortover = 10;
+        const antallRader = 10;
+
+        var data;
+        init();
+        data[0][4] = opptatt;
+        data[3][4] = opptatt;
+        data[3][5] = dinPlass;
+        reserver(6, 2, 7);
+        taken(2, 0, 9);
+        taken(4, 0, 7);
+        taken(5, 3, 7);
+        taken(7, 3, 7);
+        taken(8, 4, 9);
+        taken(9, 0, 7);
+        vis();
+        tellOpp();
+
+        function reserver(rad, fraKol, tilKol) {
+            for (let kol = fraKol; kol <= tilKol; kol++) {
+                data[rad][kol] = dinPlass;
+            }
+        }
+
+        function taken(rad, fraKol, tilKol) {
+            for (let kol = fraKol; kol <= tilKol; kol++) {
+                data[rad][kol] = opptatt;
+            }
+        }
+        function init() {
+            data = [];
+            for (let radIndex = 0; radIndex < antallRader; radIndex++) {
+                const rad = [];
+                for (let kolIndex = 0; kolIndex < antallPlasserBortover; kolIndex++) {
+                    rad.push(ledig);
+                }
+                data.push(rad);
+            }
+        }
+
+        function vis() {
+            let html = '';
+            for (let radIndex = 0; radIndex < data.length; radIndex++) {
+                const rad = data[radIndex];
+                if (radIndex % 2 == 0) {
+                    html += '<div class="skilleRad"></div>';
+                }
+                html += '<div class="rad">';
+                for (let kolIndex = 0; kolIndex < rad.length; kolIndex++) {
+                    const plass = rad[kolIndex];
+                    const cssClass = plass == opptatt
+                        ? 'reservert'
+                        : plass == dinPlass
+                        ? 'dinplass'
+                        : 'plasser';
+                    html += `<div class="${cssClass}">rad ${radIndex} - kol ${kolIndex}</div>`;
+                }
+                html += '</div>';
+            }
+            document.getElementById('alleRader').innerHTML = html;
+        }
+
+        function tellOpp() {
+            var totplasser = document.querySelectorAll('.plasser, .reservert, .dinplass');
+            var reservertplasser = document.querySelectorAll('.reservert');
+            var ledigeplasser = document.querySelectorAll('.plasser');
+            var dinplass = document.querySelectorAll('.dinplass');
+
+            document.getElementById('totaleplasser').innerHTML =
+                totplasser.length + ' Totale plasser ';
+
+            document.getElementById('Reservertplasser').innerHTML =
+                reservertplasser.length + ' Reserverte Plasser';
+
+            document.getElementById('ledigeplasser').innerHTML =
+                ledigeplasser.length + ' Ledige Plasse';
+
+            document.getElementById('dinplass').innerHTML =
+                dinplass.length + ' Din Plass';
+        }
+    </script>
+</body>
