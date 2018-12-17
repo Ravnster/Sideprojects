@@ -1,0 +1,76 @@
+[type=submit] {
+        border : solid 2px #000000;
+        border-radius : 3px;
+        -webkit-box-shadow : 0px 0px 2px rgba(0,0,0,1.0);
+        box-shadow : 0px 0px 2px rgba(0,0,0,1.0);
+        font-size : 20px;
+        color: #ffffff;
+        padding : 1px 17px;
+        background : #5f6166;
+        background : -webkit-linear-gradient(top, #5f6166 0%, #00060a 100%);
+    
+    }
+#usernameContainer{
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 12vh;
+    padding-bottom: 12vh;
+    border: solid 1px black;
+    width: 70%;
+}
+#chatContainer{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    border: solid 1px black;
+    width: 80vw;
+    height: 60vh;
+    overflow: hidden;
+}
+#txtfield{
+    position: absolute;
+    left: 0px;
+    bottom: -1px;
+    width: 90%;
+    height: 28px;
+    overflow: hidden;
+    margin-left: -2px;
+    border : solid 2px #000000;
+    font-size : 20px;
+    color: #ffffff;
+    padding : 1px 17px;
+    background : #5f6166;
+    background : -webkit-linear-gradient(top, #0048ff 0%, #0099ff 100%);
+}
+#sendbtn{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    width: 10%;
+    height: 33px;
+    border : solid 2px #000000;
+    -webkit-box-shadow : 0px 0px 2px rgba(0,0,0,1.0);
+    box-shadow : 0px 0px 2px rgba(0,0,0,1.0);
+    font-size : 20px;
+    color: #ffffff;
+    padding : 1px 17px;
+    background : #5f6166;
+    background : -webkit-linear-gradient(top, #0048ff 0%, #00060a 100%);
+}
+#chatfield{
+    position: absolute;
+    top: 0px;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+    border: solid 1px black;
+    width: 80vw;
+    height:82%;
+    overflow: hidden;
+    background-color: orange;
+    float: left;
+    text-align: left;
+}
